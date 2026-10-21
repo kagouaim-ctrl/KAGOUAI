@@ -269,6 +269,6 @@ export const zh: Content = {
       "如果你通过 Telegram 或 X 联系我们，适用这些服务自己的隐私政策。",
     ],
   },
-  ui: { copy: "复制", copied: "已复制", skip: "跳到正文", notFound: "这个页面不在链上。", home: "回到 KAGOU", product: "产品", contact: "联系", tagline: "链上 AI 员工。Built on BNB Chain.", affiliation: "与 BNB Chain 官方无隶属关系。" },
+  ui: { telegram: "Telegram 联系我们", copy: "复制", copied: "已复制", skip: "跳到正文", notFound: "这个页面不在链上。", home: "回到 KAGOU", product: "产品", contact: "联系", tagline: "链上 AI 员工。Built on BNB Chain.", affiliation: "与 BNB Chain 官方无隶属关系。" },
   common: { sample: "SAMPLE", testnet: "TESTNET", scrollHint: "← 滑动 →" },
 };
