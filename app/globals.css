@@ -1,4 +1,121 @@
-@tailwind base;@tailwind components;@tailwind utilities;
-html{scroll-behavior:smooth;background:#0a0a0a}
-body{@apply bg-ink text-paper font-sans antialiased leading-relaxed}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0b0c;
+  --surface: #121214;
+  --line: #26262a;
+  --text: #ededed;
+  --muted: #8a8a8f;
+  --signal: #f0b90b;
+  --ok: #3ddc84;
+  --review: #f0b90b;
+  --block: #ff4d4d;
+  --font-cjk: var(--font-sc), var(--font-jp);
+  color-scheme: dark;
+}
+html[lang="ja"] {
+  --font-cjk: var(--font-jp), var(--font-sc);
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  color: var(--text);
+  font-family: var(--font-plex), var(--font-cjk), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}
+:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: 3px;
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-archivo), var(--font-cjk), sans-serif;
+    font-stretch: 125%;
+    font-variation-settings: "wdth" 125;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+  }
+  html[lang="zh-CN"] .display,
+  html[lang="ja"] .display {
+    letter-spacing: -0.01em;
+    line-height: 1.12;
+  }
+  .label {
+    font-family: var(--font-mono), monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .wrap {
+    @apply mx-auto max-w-page border-x border-line;
+  }
+  .pad {
+    @apply px-4 sm:px-6 lg:px-10;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 font-mono text-[13px] font-medium tracking-wide transition-colors;
+  }
+  .btn-signal {
+    background: var(--signal);
+    color: #0b0b0c;
+  }
+  .btn-signal:hover {
+    background: #ffd33d;
+  }
+  .btn-line {
+    @apply border border-line text-text hover:border-text;
+  }
+  .link {
+    @apply underline decoration-line underline-offset-4 transition-colors hover:decoration-text;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes tick {
+  from {
+    color: var(--signal);
+  }
+  to {
+    color: var(--text);
+  }
+}
+.tick {
+  animation: tick 0.6s ease-out;
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  animation: caret 1s steps(1) infinite;
+}
