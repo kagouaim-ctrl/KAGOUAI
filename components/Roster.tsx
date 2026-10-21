@@ -15,10 +15,12 @@ export default function Roster() {
           <span className="label col-span-3">{r.head[2]}</span>
           <span className="label col-span-2">{r.head[3]}</span>
         </div>
-        {r.rows.map(([role, what, money, who, status], i) => (
+        {r.rows.map(([role, what, money, who, status]) => {
+          const built = !status.startsWith("STAGE");
+          return (
           <div
             key={role}
-            className={`pad flex flex-wrap items-baseline gap-x-4 gap-y-2 md:grid border-b border-line py-5 last:border-b-0 md:grid-cols-12 ${i === 0 ? "" : "text-muted"}`}
+            className={`pad flex flex-wrap items-baseline gap-x-4 gap-y-2 md:grid border-b border-line py-5 last:border-b-0 md:grid-cols-12 ${built ? "" : "text-muted"}`}
           >
             <div className="w-full md:col-span-5">
               <p className="text-[18px] font-medium">{role}</p>
@@ -33,10 +35,11 @@ export default function Roster() {
               {who}
             </p>
             <p className="font-mono text-[12px] md:col-span-2 md:text-[13px]">
-              <span className={i === 0 ? "border border-text px-1.5 py-0.5 text-text" : ""}>{status}</span>
+              <span className={built ? "border border-text px-1.5 py-0.5 text-text" : ""}>{status}</span>
             </p>
           </div>
-        ))}
+          );
+        })}
       </div>
       <p className="pad border-t border-line py-5 font-mono text-[13px] leading-relaxed">{r.note}</p>
     </Section>
