@@ -22,7 +22,10 @@ export default function Gates() {
           </li>
         ))}
       </ol>
-      <p className="pad border-t border-line py-5 font-mono text-[13px]">{g.kill}</p>
+      <div className="pad space-y-1 border-t border-line py-5 font-mono text-[13px]">
+        <p>{g.kill}</p>
+        <p className="text-muted">{g.incident}</p>
+      </div>
     </Section>
   );
 }

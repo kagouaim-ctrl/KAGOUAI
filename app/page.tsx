@@ -6,7 +6,9 @@ import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import Checks from "@/components/Checks";
 import Gates from "@/components/Gates";
+import Anatomy from "@/components/Anatomy";
 import EmployeeFile from "@/components/EmployeeFile";
+import Hiring from "@/components/Hiring";
 import Roster from "@/components/Roster";
 import Stack from "@/components/Stack";
 import Pricing from "@/components/Pricing";
@@ -28,7 +30,9 @@ export default function Home() {
         <Problem />
         <Checks />
         <Gates />
+        <Anatomy />
         <EmployeeFile />
+        <Hiring />
         <Roster />
         <Stack />
         <Pricing />

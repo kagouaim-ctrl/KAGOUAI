@@ -119,3 +119,16 @@ export function useReduced() {
   useEffect(() => setMounted(true), []);
   return mounted && !!r;
 }
+
+// Keeps hyphenated words like "on-chain" from breaking at the hyphen in big headlines.
+export function nb(text: string) {
+  return text.split(/(\S*-\S*)/).map((part, i) =>
+    part.includes("-") ? (
+      <span key={i} className="whitespace-nowrap">
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
+}

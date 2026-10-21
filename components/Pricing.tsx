@@ -1,13 +1,13 @@
 "use client";
 import { useT } from "@/lib/i18n";
-import { Roll, Section } from "./ui";
+import { nb, Roll, Section } from "./ui";
 
 export default function Pricing() {
   const { t } = useT();
   const p = t.pricing;
   return (
-    <Section id="pricing" n="07" label={p.label}>
-      <h2 className="display pad max-w-[19ch] pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{p.title}</h2>
+    <Section id="pricing" n="09" label={p.label}>
+      <h2 className="display pad max-w-[19ch] pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{nb(p.title)}</h2>
       <div className="grid border-t border-line sm:grid-cols-2 lg:grid-cols-4">
         {p.plans.map((pl, i) => {
           const rec = pl.name === "Pro";
@@ -41,7 +41,10 @@ export default function Pricing() {
           );
         })}
       </div>
-      <p className="pad border-t border-line py-5 font-mono text-[13px]">{p.note}</p>
+      <div className="pad space-y-1 border-t border-line py-5 font-mono text-[13px]">
+        <p>{p.note}</p>
+        <p className="text-muted">{p.later}</p>
+      </div>
     </Section>
   );
 }

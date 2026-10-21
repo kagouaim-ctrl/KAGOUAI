@@ -2,6 +2,7 @@
 import { useT } from "@/lib/i18n";
 import { site } from "@/content/site";
 import Terminal from "./Terminal";
+import { nb } from "./ui";
 
 export default function Hero() {
   const { t } = useT();
@@ -11,7 +12,7 @@ export default function Hero() {
       <div className="pad flex flex-col justify-between gap-10 py-10 sm:py-14 lg:col-span-6 lg:py-16">
         <p className="label">{h.kicker}</p>
         <div>
-          <h1 className="display text-[clamp(40px,6.4vw,92px)] lg:text-[clamp(44px,4.9vw,84px)]">{h.title}</h1>
+          <h1 className="display text-[clamp(40px,6.4vw,92px)] lg:text-[clamp(44px,4.9vw,84px)]">{nb(h.title)}</h1>
           <p className="mt-6 max-w-[34rem] text-[16px] leading-[1.65] text-muted sm:text-[17px]">{h.sub}</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a href={site.trialHref} className="btn btn-signal">

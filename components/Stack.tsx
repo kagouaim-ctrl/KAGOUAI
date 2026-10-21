@@ -6,7 +6,7 @@ export default function Stack() {
   const { t } = useT();
   const s = t.stack;
   return (
-    <Section n="06" label={s.label}>
+    <Section n="08" label={s.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{s.title}</h2>
       <ul className="grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
         {s.items.map(([name, what], i) => (

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: en.meta.description,
     url: site.url,
     siteName: "KAGOU",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "KAGOU treasury operator terminal" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "KAGOU on-chain AI employees" }],
     type: "website",
   },
   twitter: { card: "summary_large_image", title: en.meta.title, description: en.meta.description, images: ["/og.png"] },

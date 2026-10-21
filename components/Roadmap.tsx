@@ -7,10 +7,10 @@ export default function Roadmap() {
   const { t } = useT();
   const r = t.roadmap;
   return (
-    <Section n="09" label={r.label}>
+    <Section n="11" label={r.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{r.title}</h2>
       <ol className="grid border-t border-line md:grid-cols-5">
-        {r.stages.map(([name, detail], i) => {
+        {r.stages.map(([name, what, gate], i) => {
           const here = i === site.currentStage;
           const done = i < site.currentStage;
           return (
@@ -32,9 +32,9 @@ export default function Roadmap() {
                 )}
               </p>
               <p className="mt-3 text-[18px] font-medium leading-snug">{name}</p>
-              <p className="mt-2 font-mono text-[12px] leading-relaxed text-muted">
-                {r.gated[i] ? `${r.gate}: ` : "+ "}
-                {detail}
+              <p className="mt-2 text-[14px] leading-relaxed text-muted">{what}</p>
+              <p className="mt-3 border-t border-line pt-3 font-mono text-[12px] leading-relaxed text-muted">
+                {r.gate}: {gate}
               </p>
               {i === 1 && (
                 <p className="mt-3 font-mono text-[11px] leading-relaxed text-muted">
