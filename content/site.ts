@@ -6,9 +6,9 @@ export const isTodo = (s: string) => s.startsWith("[");
 
 export const site = {
   url: "https://kagouai.com",
-  // Founder handles: not verified yet.
-  telegram: TODO("telegram"),
-  x: TODO("x"),
+  // Founder handles.
+  telegram: "cc_XBNB",
+  x: "KAGOUAI",
   github: "https://github.com/kagouaim-ctrl",
   // Where "Start 30-day trial" goes. Points at the founder until onboarding exists.
   trialHref: "#founder",
