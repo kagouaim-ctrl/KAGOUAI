@@ -24,6 +24,7 @@ export const en = {
     sub: "Every KAGOU employee gets a job, a capped wallet and an on-chain record. The first role runs on testnet today: a Treasury Operator that handles your team's payouts in Telegram, pays inside limits enforced at the wallet's signing layer, and leaves big money in your Safe.",
     cta: "Start 30-day trial",
     secondary: "See how a payment is checked ↓",
+    demo: "Open the console demo ↗",
     fine: "For BNB Chain teams of 5–30. No token. Paid in USDT. Read-only for the first 2 weeks.",
     proof: "Testnet acceptance, 2026-10-20 · 30 requests · 0 fund incidents",
     verify: "Verify on BscScan ↗",

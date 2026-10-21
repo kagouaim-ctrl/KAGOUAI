@@ -21,6 +21,9 @@ export default function Hero() {
             <a href="#product" className="link font-mono text-[13px] text-text">
               {h.secondary}
             </a>
+            <a href="/demo/" className="link font-mono text-[13px] text-text">
+              {h.demo}
+            </a>
           </div>
         </div>
         <p className="font-mono text-[12px] text-muted">{h.fine}</p>
