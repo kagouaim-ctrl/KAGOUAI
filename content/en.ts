@@ -278,7 +278,7 @@ export const en = {
       "If you message us on Telegram or X, those services' own policies apply.",
     ],
   },
-  ui: { copy: "COPY", copied: "COPIED", skip: "Skip to content", notFound: "This page isn't on-chain.", home: "Back to KAGOU", product: "Product", contact: "Contact", tagline: "On-chain AI employees. Built on BNB Chain.", affiliation: "Not affiliated with BNB Chain." },
+  ui: { telegram: "Chat on Telegram", copy: "COPY", copied: "COPIED", skip: "Skip to content", notFound: "This page isn't on-chain.", home: "Back to KAGOU", product: "Product", contact: "Contact", tagline: "On-chain AI employees. Built on BNB Chain.", affiliation: "Not affiliated with BNB Chain." },
   common: { sample: "SAMPLE", testnet: "TESTNET", scrollHint: "← scroll →" },
 };
 
