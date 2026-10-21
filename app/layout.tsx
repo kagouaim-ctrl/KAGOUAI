@@ -4,7 +4,7 @@ import { Archivo, IBM_Plex_Sans, IBM_Plex_Sans_JP, JetBrains_Mono, Noto_Sans_SC 
 import { en } from "@/content/en";
 import { site } from "@/content/site";
 import Providers from "@/components/Providers";
-import TelegramFab from "@/components/TelegramFab";
+import ChatFab from "@/components/ChatFab";
 
 const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
 const plex = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex", display: "swap" });
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Providers>
           {children}
-          <TelegramFab />
+          <ChatFab />
         </Providers>
       </body>
     </html>

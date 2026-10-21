@@ -269,6 +269,6 @@ export const ja: Content = {
       "TelegramやXで連絡いただいた場合は、各サービスのポリシーが適用されます。",
     ],
   },
-  ui: { telegram: "Telegramで相談", copy: "コピー", copied: "コピー済み", skip: "本文へスキップ", notFound: "このページはオンチェーンにありません。", home: "KAGOUへ戻る", product: "プロダクト", contact: "連絡先", tagline: "オンチェーンのAI社員。Built on BNB Chain.", affiliation: "BNB Chainとの提携はありません。" },
+  ui: { chat: "AI社員とチャット", copy: "コピー", copied: "コピー済み", skip: "本文へスキップ", notFound: "このページはオンチェーンにありません。", home: "KAGOUへ戻る", product: "プロダクト", contact: "連絡先", tagline: "オンチェーンのAI社員。Built on BNB Chain.", affiliation: "BNB Chainとの提携はありません。" },
   common: { sample: "SAMPLE", testnet: "TESTNET", scrollHint: "← スクロール →" },
 };
