@@ -1,4 +1,7 @@
-import {PageTitle} from "@/components/Sections";
-import ContactForm from "@/components/ContactForm";
-export const metadata={title:"Contact — KAGOU"};
-export default function P(){return <main><PageTitle k="ctT"/><ContactForm/></main>}
+import Redirect from "@/components/Redirect";
+
+export const metadata = { robots: { index: false } };
+
+export default function Page() {
+  return <Redirect to="/#founder" />;
+}

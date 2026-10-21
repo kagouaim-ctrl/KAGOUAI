@@ -1,3 +1,7 @@
-import {PageTitle,Future,Cta} from "@/components/Sections";
-export const metadata={title:"Company — KAGOU"};
-export default function P(){return <main><PageTitle k="cmT"/><Future/><Cta/></main>}
+import Redirect from "@/components/Redirect";
+
+export const metadata = { robots: { index: false } };
+
+export default function Page() {
+  return <Redirect to="/#founder" />;
+}

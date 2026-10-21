@@ -1,10 +1,22 @@
 "use client";
-import Link from "next/link";
-import {useT} from "@/lib/i18n";
-export default function Footer(){
-  const {t}=useT();
-  return <footer className="mx-auto flex max-w-6xl flex-wrap justify-between gap-8 px-[5vw] pb-10 pt-20 text-[13px] text-mu">
-    <div><div className="font-bold tracking-[.28em] text-paper">KAGOU</div><p className="mt-2">{t.h1}</p></div>
-    <div><div className="flex flex-wrap gap-5">{["/product","/solutions","/company","/contact"].map((p,i)=><Link key={p} href={p}>{t.nav[i]}</Link>)}<span>Privacy Policy</span></div><p className="mt-4">© 2026 KAGOU Inc.</p></div>
-  </footer>;
+import { useT } from "@/lib/i18n";
+import { LangSwitch } from "./ui";
+
+export default function Footer() {
+  const { t } = useT();
+  const f = t.footer;
+  return (
+    <footer className="wrap relative border-t border-line">
+      <div className="pad flex flex-col gap-4 py-8 font-mono text-[12px] text-muted md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <span className="text-text">{f.place}</span>
+          <LangSwitch className="-ml-1.5" />
+          <a href="/privacy/" className="link">
+            {f.privacy}
+          </a>
+        </div>
+        <p>{f.disclaimer}</p>
+      </div>
+    </footer>
+  );
 }

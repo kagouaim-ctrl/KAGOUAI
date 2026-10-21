@@ -1,3 +1,7 @@
-import {PageTitle,Employees,Future,Cta} from "@/components/Sections";
-export const metadata={title:"Solutions — KAGOU"};
-export default function P(){return <main><PageTitle k="ctT"/><Employees title={false}/><Future/><Cta/></main>}
+import Redirect from "@/components/Redirect";
+
+export const metadata = { robots: { index: false } };
+
+export default function Page() {
+  return <Redirect to="/#product" />;
+}
