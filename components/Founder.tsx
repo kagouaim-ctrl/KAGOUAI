@@ -17,7 +17,7 @@ export default function Founder({ photo }: { photo: boolean }) {
                 src="/founder.jpg"
                 alt="DI JIAHAO"
                 loading="lazy"
-                className="h-full w-full object-cover [filter:grayscale(1)_contrast(1.1)] transition-[filter] duration-[1500ms] group-hover:[filter:grayscale(0)_contrast(1)]"
+                className="h-full w-full object-cover object-top [filter:grayscale(1)_contrast(1.1)] transition-[filter] duration-[1500ms] group-hover:[filter:grayscale(0)_contrast(1)]"
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center p-6 text-center font-mono text-[12px] text-muted">
