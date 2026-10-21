@@ -8,8 +8,8 @@ import { toneText, useReduced } from "./ui";
 
 const T = { char: 26, line: 240, afterReq: 420, hold: 1700, restart: 4200 };
 
-type Row = TLine & { first: boolean };
-const rows: Row[] = script.flatMap((req) => req.map((l, i) => ({ ...l, first: i === 0 })));
+type Row = TLine & { first: boolean; group: number };
+const rows: Row[] = script.flatMap((req, g) => req.map((l, i) => ({ ...l, first: i === 0, group: g })));
 
 export default function Terminal() {
   const { t } = useT();
@@ -53,6 +53,7 @@ export default function Terminal() {
   }, [i, block, paidAt]);
 
   const shown = reduce ? rows.length : i;
+  const current = rows[Math.min(shown, rows.length - 1)].group;
   const blockNo = (paidAt ?? block) || null;
 
   const transcript = useMemo(
@@ -86,12 +87,14 @@ export default function Terminal() {
         )}
       </div>
       <pre className="sr-only">{transcript}</pre>
-      <div aria-hidden className="px-3 py-4 font-mono text-[12px] leading-[1.7] sm:px-4 sm:text-[13px]">
+      <div aria-hidden className="px-3 py-4 max-md:min-h-[17.5rem] font-mono text-[12px] leading-[1.7] sm:px-4 sm:text-[13px]">
         {rows.map((r, n) => {
           const visible = n < shown || (n === shown && r.k === "req" && c > 0);
           const typing = n === shown && r.k === "req";
+          // On phones only the request being replayed is shown, so the box stays short.
+          const other = !reduce && r.group !== current ? "max-md:hidden" : "";
           return (
-            <div key={n} className={`${visible ? "" : "invisible"} ${r.first && n > 0 ? "mt-4" : ""}`}>
+            <div key={n} className={`${visible ? "" : "invisible"} ${r.first && n > 0 ? "mt-4 max-md:mt-0" : ""} ${other}`}>
               <Line row={r} text={typing ? r.text.slice(0, c) : undefined} caret={typing && running} block={blockNo} />
             </div>
           );

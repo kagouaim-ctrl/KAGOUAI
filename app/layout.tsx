@@ -29,11 +29,22 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: "#0b0b0c", width: "device-width", initialScale: 1 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "KAGOU",
+  url: site.url,
+  logo: `${site.url}/favicon.svg`,
+  description: en.meta.description,
+  sameAs: [`https://x.com/${site.x}`, `https://t.me/${site.telegram}`, site.github],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const fonts = [archivo, plex, plexJp, notoSc, mono].map((f) => f.variable).join(" ");
   return (
     <html lang="en" className={fonts}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Providers>{children}</Providers>
       </body>
     </html>

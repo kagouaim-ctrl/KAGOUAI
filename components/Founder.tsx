@@ -7,10 +7,10 @@ export default function Founder({ photo }: { photo: boolean }) {
   const { t } = useT();
   const f = t.founder;
   return (
-    <Section id="founder" n="10" label={f.label}>
+    <Section id="founder" n="08" label={f.label}>
       <div className="grid pt-8 lg:grid-cols-12">
         <figure className="pad pb-8 lg:col-span-5 lg:pb-12">
-          <div className="group relative aspect-[4/5] w-full max-w-[460px] border border-line bg-surface">
+          <div className="group relative aspect-[4/5] w-full max-w-[300px] sm:max-w-[460px] border border-line bg-surface">
             {photo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img

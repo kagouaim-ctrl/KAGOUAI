@@ -6,7 +6,7 @@ export default function Roster() {
   const { t } = useT();
   const r = t.roster;
   return (
-    <Section id="roles" n="07" label={r.label}>
+    <Section id="roles" n="06" label={r.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{r.title}</h2>
       <div className="border-t border-line">
         <div className="pad hidden grid-cols-12 gap-4 border-b border-line py-3 md:grid">
@@ -18,18 +18,18 @@ export default function Roster() {
         {r.rows.map(([role, what, money, who, status], i) => (
           <div
             key={role}
-            className={`pad grid grid-cols-2 gap-x-4 gap-y-2 border-b border-line py-5 last:border-b-0 md:grid-cols-12 ${i === 0 ? "" : "text-muted"}`}
+            className={`pad flex flex-wrap items-baseline gap-x-4 gap-y-2 md:grid border-b border-line py-5 last:border-b-0 md:grid-cols-12 ${i === 0 ? "" : "text-muted"}`}
           >
-            <div className="col-span-2 md:col-span-5">
+            <div className="w-full md:col-span-5">
               <p className="text-[18px] font-medium">{role}</p>
               <p className="mt-1 text-[14px] text-muted">{what}</p>
             </div>
             <p className="font-mono text-[12px] md:col-span-2 md:text-[13px]">
-              <span className="label md:hidden">{r.head[1]} · </span>
+              <span className="label md:hidden">{r.head[1]}: </span>
               {money}
             </p>
-            <p className="col-span-2 text-[13px] text-muted max-md:order-last md:col-span-3">
-              <span className="label md:hidden">{r.head[2]} · </span>
+            <p className="text-[13px] text-muted max-md:order-last max-md:w-full md:col-span-3">
+              <span className="label md:hidden">{r.head[2]}: </span>
               {who}
             </p>
             <p className="font-mono text-[12px] md:col-span-2 md:text-[13px]">

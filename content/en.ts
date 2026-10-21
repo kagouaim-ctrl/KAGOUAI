@@ -6,11 +6,12 @@ export const en = {
   },
   nav: {
     links: [
+      ["Security", "#security"],
       ["Product", "#product"],
       ["Roles", "#roles"],
-      ["Security", "#security"],
       ["Pricing", "#pricing"],
       ["Founder", "#founder"],
+      ["FAQ", "#faq"],
     ] as [string, string][],
     cta: "Start 30-day trial",
     menu: "Menu",
@@ -23,7 +24,9 @@ export const en = {
     sub: "Every KAGOU employee gets a job, a capped wallet and an on-chain record. The first role runs on testnet today: a Treasury Operator that handles your team's payouts in Telegram, pays inside limits enforced at the wallet's signing layer, and leaves big money in your Safe.",
     cta: "Start 30-day trial",
     secondary: "See how a payment is checked ↓",
-    fine: "No token. Paid in USDT. Read-only for the first 2 weeks.",
+    fine: "For BNB Chain teams of 5–30. No token. Paid in USDT. Read-only for the first 2 weeks.",
+    proof: "Testnet acceptance, 2026-10-20 · 30 requests · 0 fund incidents",
+    verify: "Verify on BscScan ↗",
   },
   terminal: {
     title: "kagou://treasury-operator",
@@ -181,7 +184,7 @@ export const en = {
   },
   stack: {
     label: "STACK",
-    title: "Built on BNB Chain.",
+    title: "Built on BNB Chain",
     items: [
       ["BNBAgent SDK", "Identity, escrow, payments and memory modules"],
       ["Agent Studio", "Wallet setup with signing-layer limits, LLM gateway"],
@@ -241,10 +244,23 @@ export const en = {
     built: "Built. Internal testnet acceptance passed",
     note: "If a gate isn't met, we don't move forward. Safety over features.",
   },
+  faq: {
+    label: "FAQ",
+    title: "Questions founders ask first.",
+    items: [
+      ["What if someone tricks the model?", "Nothing moves. The model only reads the request and fills in who, how much and why. Whether money moves is decided by plain code with tests, and the whitelist and caps are enforced again by the wallet's signing policy. A message that says \"ignore previous rules\" is treated as text, not as a rule. The terminal at the top replays exactly that case."],
+      ["Do you hold our keys or our treasury?", "No. On mainnet the employee's key lives in Turnkey's enclave and never appears in our code, logs or database. Your treasury stays in your own Safe. The employee can only propose a Safe transaction; your signers decide."],
+      ["What happens if KAGOU disappears?", "You lose an employee, not your treasury. Large funds were never with us, and the employee wallet only ever holds the budget you chose to give it."],
+      ["Is it live on mainnet?", "Not yet. The Treasury Operator runs on BSC testnet and passed internal acceptance on 2026-10-20: 10 payments, 10 proposals, 10 blocks, zero fund incidents. Mainnet starts after trial teams run 4 weeks with zero incidents, and then with small budgets first."],
+      ["Which chain and tokens?", "BNB Chain (BSC). USDT first; USDC, USD1 and BNB next."],
+      ["Why no token?", "Revenue is the monthly USDT fee, so nothing here depends on a token price. A volatile token sitting next to your treasury would be one more thing that can go wrong."],
+      ["Can it do more than payments?", "That's the plan: any job, one role at a time. Read-only roles like on-chain monitoring and community support come next. Every role runs on the same engine and the same rules."],
+    ] as [string, string][],
+  },
   cta: {
     title: "Give it a budget of 0. Watch it work for 2 weeks.",
     primary: "Start 30-day trial",
-    secondary: "Message the founder on Telegram",
+    secondary: "Follow the build on X",
   },
   footer: {
     place: "KAGOU · Tokyo",
@@ -261,6 +277,7 @@ export const en = {
       "If you message us on Telegram or X, those services' own policies apply.",
     ],
   },
+  ui: { copy: "COPY", copied: "COPIED", skip: "Skip to content", notFound: "This page isn't on-chain.", home: "Back to KAGOU", product: "Product", contact: "Contact", tagline: "On-chain AI employees. Built on BNB Chain.", affiliation: "Not affiliated with BNB Chain." },
   common: { sample: "SAMPLE", testnet: "TESTNET", scrollHint: "← scroll →" },
 };
 

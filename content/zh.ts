@@ -8,11 +8,12 @@ export const zh: Content = {
   },
   nav: {
     links: [
+      ["安全", "#security"],
       ["产品", "#product"],
       ["岗位", "#roles"],
-      ["安全", "#security"],
       ["定价", "#pricing"],
       ["创始人", "#founder"],
+      ["FAQ", "#faq"],
     ],
     cta: "开始 30 天试用",
     menu: "菜单",
@@ -25,7 +26,9 @@ export const zh: Content = {
     sub: "每个 KAGOU 员工都有岗位、限额钱包和链上履历。第一个岗位已经在测试网上班：财务运营员，在 Telegram 里处理团队付款，在钱包签名层设定的额度内自动付款，大额资金始终留在你自己的 Safe 多签里。",
     cta: "开始 30 天试用",
     secondary: "看一笔付款怎么被核对 ↓",
-    fine: "没有代币。USDT 付费。前 2 周只读。",
+    fine: "面向 BNB Chain 上 5–30 人的团队。没有代币。USDT 付费。前 2 周只读。",
+    proof: "测试网验收 2026-10-20 · 30 笔请求 · 0 次资金事故",
+    verify: "在 BscScan 上核对 ↗",
   },
   terminal: {
     title: "kagou://treasury-operator",
@@ -182,7 +185,7 @@ export const zh: Content = {
   },
   stack: {
     label: "STACK",
-    title: "Built on BNB Chain.",
+    title: "Built on BNB Chain",
     items: [
       ["BNBAgent SDK", "身份、托管、支付、记忆四个模块"],
       ["Agent Studio", "带签名层限额的钱包配置，模型网关"],
@@ -232,10 +235,23 @@ export const zh: Content = {
     built: "已做出来，内部测试网验收通过",
     note: "关卡没过，就不往下走。安全优先于功能。",
   },
+  faq: {
+    label: "FAQ",
+    title: "老板们最先问的问题。",
+    items: [
+      ["有人骗模型怎么办？", "钱不会动。模型只负责读懂请求，填出付给谁、多少、为什么。放不放款由有测试的普通代码决定，白名单和上限还会在钱包签名策略里再执行一次。一条写着「忽略之前的规则」的消息只是文字，不是规则。页面顶部的终端回放的就是这个场景。"],
+      ["你们拿着我们的私钥或国库吗？", "不。主网上员工的私钥在 Turnkey 的安全环境里，从不出现在我们的代码、日志和数据库里。国库留在你自己的 Safe，员工只能发起 Safe 交易提案，签不签由你的签名人决定。"],
+      ["KAGOU 跑路了怎么办？", "你损失的是一个员工，不是国库。大额资金从来不在我们这里，员工钱包里只有你自己给它的那笔预算。"],
+      ["主网上线了吗？", "还没有。财务运营员在 BSC 测试网运行，2026-10-20 通过内部验收：10 笔付款、10 个提案、10 笔拦截、0 次资金事故。试用团队连续 4 周零事故之后才上主网，而且先从小额预算开始。"],
+      ["支持哪条链、哪些币？", "BNB Chain（BSC）。先支持 USDT，接下来是 USDC、USD1 和 BNB。"],
+      ["为什么没有代币？", "收入来自 USDT 月费，这里没有任何东西依赖币价。在你的国库旁边放一个大起大落的代币，只会多一个出事的地方。"],
+      ["只能做付款吗？", "目标是任何岗位，一次上一个。接下来是链上监控、社区客服这类只读岗位。所有岗位都跑在同一个引擎、同一套规则上。"],
+    ],
+  },
   cta: {
     title: "先给它 0 预算，看它干两周活。",
     primary: "开始 30 天试用",
-    secondary: "在 Telegram 上联系创始人",
+    secondary: "在 X 上看开发进度",
   },
   footer: {
     place: "KAGOU · Tokyo",
@@ -252,5 +268,6 @@ export const zh: Content = {
       "如果你通过 Telegram 或 X 联系我们，适用这些服务自己的隐私政策。",
     ],
   },
+  ui: { copy: "复制", copied: "已复制", skip: "跳到正文", notFound: "这个页面不在链上。", home: "回到 KAGOU", product: "产品", contact: "联系", tagline: "链上 AI 员工。Built on BNB Chain.", affiliation: "与 BNB Chain 官方无隶属关系。" },
   common: { sample: "SAMPLE", testnet: "TESTNET", scrollHint: "← 滑动 →" },
 };

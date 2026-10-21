@@ -10,8 +10,8 @@ export const site = {
   telegram: "cc_XBNB",
   x: "KAGOUAI",
   github: "https://github.com/kagouaim-ctrl",
-  // Where "Start 30-day trial" goes. Points at the founder until onboarding exists.
-  trialHref: "#founder",
+  // Where "Start 30-day trial" goes: the founder on Telegram until self-serve onboarding exists.
+  trialHref: "https://t.me/cc_XBNB",
 
   // Roadmap stage that gets YOU ARE HERE (index into roadmap.stages).
   // 0 = interviews: the gate (3 written trial commitments) is not met yet.

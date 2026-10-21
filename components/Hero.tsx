@@ -2,7 +2,7 @@
 import { useT } from "@/lib/i18n";
 import { site } from "@/content/site";
 import Terminal from "./Terminal";
-import { nb } from "./ui";
+import { nb, ext } from "./ui";
 
 export default function Hero() {
   const { t } = useT();
@@ -15,7 +15,7 @@ export default function Hero() {
           <h1 className="display text-[clamp(40px,6.4vw,92px)] lg:text-[clamp(44px,4.9vw,84px)]">{nb(h.title)}</h1>
           <p className="mt-6 max-w-[34rem] text-[16px] leading-[1.65] text-muted sm:text-[17px]">{h.sub}</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <a href={site.trialHref} className="btn btn-signal">
+            <a href={site.trialHref} {...ext(site.trialHref)} className="btn btn-signal">
               {h.cta}
             </a>
             <a href="#product" className="link font-mono text-[13px] text-text">
@@ -28,6 +28,13 @@ export default function Hero() {
       <div className="flex flex-col justify-center border-t border-line p-3 sm:p-6 lg:col-span-6 lg:border-l lg:border-t-0 lg:p-8">
         <Terminal />
         <p className="mt-3 font-mono text-[11px] leading-relaxed text-muted">{t.terminal.caption}</p>
+        <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-line pt-4 font-mono text-[12px]">
+          <span className="text-muted">ERC-8004 #{site.testnet.agentId}</span>
+          <span className="text-muted">{h.proof}</span>
+          <a href={site.testnet.walletUrl} target="_blank" rel="noreferrer" className="link text-text">
+            {h.verify}
+          </a>
+        </p>
       </div>
     </section>
   );

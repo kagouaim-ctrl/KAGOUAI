@@ -5,16 +5,15 @@ import HexField from "@/components/HexField";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import Checks from "@/components/Checks";
-import Gates from "@/components/Gates";
 import Anatomy from "@/components/Anatomy";
 import EmployeeFile from "@/components/EmployeeFile";
 import Hiring from "@/components/Hiring";
 import Roster from "@/components/Roster";
-import Stack from "@/components/Stack";
 import Pricing from "@/components/Pricing";
 import Founder from "@/components/Founder";
 import Roadmap from "@/components/Roadmap";
 import Cta from "@/components/Cta";
+import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 
 // Drop a photo at public/founder.jpg and rebuild; until then a placeholder shows.
@@ -25,19 +24,18 @@ export default function Home() {
     <>
       <HexField />
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <Problem />
         <Checks />
-        <Gates />
         <Anatomy />
         <EmployeeFile />
         <Hiring />
         <Roster />
-        <Stack />
         <Pricing />
         <Founder photo={hasPhoto} />
         <Roadmap />
+        <Faq />
         <Cta />
       </main>
       <Footer />

@@ -8,9 +8,33 @@ export default function Checks() {
   return (
     <Section id="product" n="02" label={c.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{c.title}</h2>
-      <p className="label pad pb-2 md:hidden">{t.common.scrollHint}</p>
-      <div className="overflow-x-auto border-t border-line" role="region" aria-label={c.scroll} tabIndex={0}>
-        <table className="w-full min-w-[760px] border-collapse text-left">
+      <ol className="border-t border-line md:hidden">
+        {c.rows.map((r) => {
+          const tone = r.tone as "ok" | "review" | "block";
+          return (
+            <li key={r.out} className="pad space-y-3 border-b border-line py-6 last:border-b-0">
+              <p className={`flex items-center gap-2 font-mono text-[13px] font-medium ${toneText(tone)}`}>
+                <Square tone={tone} />
+                {r.out}
+              </p>
+              <p className="font-mono text-[13px]">
+                <span className="text-muted">&gt; </span>
+                {r.req}
+              </p>
+              <dl className="grid grid-cols-[9ch_1fr] gap-x-3 gap-y-2 text-[14px]">
+                <dt className="label pt-0.5">{c.head[1]}</dt>
+                <dd className="font-mono text-[12px] leading-relaxed text-muted">{r.checks}</dd>
+                <dt className="label pt-0.5">{c.head[2]}</dt>
+                <dd className="leading-relaxed">{r.rule}</dd>
+                <dt className="label pt-0.5">{c.head[3]}</dt>
+                <dd className="leading-relaxed text-muted">{r.outNote}</dd>
+              </dl>
+            </li>
+          );
+        })}
+      </ol>
+      <div className="hidden border-t border-line md:block">
+        <table className="w-full border-collapse text-left">
           <thead>
             <tr className="border-b border-line">
               {c.head.map((h, i) => (

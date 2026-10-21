@@ -6,7 +6,7 @@ export default function Pricing() {
   const { t } = useT();
   const p = t.pricing;
   return (
-    <Section id="pricing" n="09" label={p.label}>
+    <Section id="pricing" n="07" label={p.label}>
       <h2 className="display pad max-w-[19ch] pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{nb(p.title)}</h2>
       <div className="grid border-t border-line sm:grid-cols-2 lg:grid-cols-4">
         {p.plans.map((pl, i) => {

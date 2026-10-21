@@ -1,7 +1,7 @@
 "use client";
 import { useT } from "@/lib/i18n";
 import { site, short } from "@/content/site";
-import { Roll, Section } from "./ui";
+import { Roll, Section, Copy } from "./ui";
 
 export default function EmployeeFile() {
   const { t } = useT();
@@ -22,6 +22,7 @@ export default function EmployeeFile() {
         <a href={tn.walletUrl} target="_blank" rel="noreferrer" className="link">
           {short(tn.wallet)}
         </a>
+        <Copy value={tn.wallet} />
         <span className="text-muted"> · {f.walletNote}</span> <Tag>{t.common.testnet}</Tag>
       </>,
     ],
@@ -50,9 +51,9 @@ export default function EmployeeFile() {
     ],
   ];
   return (
-    <Section n="05" label={f.label}>
+    <Section n="04" label={f.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{f.title}</h2>
-      <div className="grid border-t border-line lg:grid-cols-12">
+      <div className="grid grid-cols-1 border-t border-line lg:grid-cols-12">
         <dl className="font-mono text-[13px] lg:col-span-7">
           {rows.map(([k, v]) => (
             <div key={k} className="pad grid gap-1 border-b border-line py-3.5 last:border-b-0 sm:grid-cols-[14ch_1fr] sm:gap-4">

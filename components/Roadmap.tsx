@@ -7,7 +7,7 @@ export default function Roadmap() {
   const { t } = useT();
   const r = t.roadmap;
   return (
-    <Section n="11" label={r.label}>
+    <Section n="09" label={r.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{r.title}</h2>
       <ol className="grid border-t border-line md:grid-cols-5">
         {r.stages.map(([name, what, gate], i) => {

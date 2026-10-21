@@ -132,3 +132,28 @@ export function nb(text: string) {
     ),
   );
 }
+
+// Block-explorer style copy button for addresses and hashes.
+export function Copy({ value }: { value: string }) {
+  const { t } = useT();
+  const [done, setDone] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(value);
+          setDone(true);
+          setTimeout(() => setDone(false), 1400);
+        } catch {}
+      }}
+      className="ml-2 border border-line px-1.5 py-px align-[1px] text-[10px] tracking-wider text-muted transition-colors hover:border-text hover:text-text"
+      aria-label={`${t.ui.copy} ${value}`}
+    >
+      {done ? t.ui.copied : t.ui.copy}
+    </button>
+  );
+}
+
+// Props for links that leave the page.
+export const ext = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
