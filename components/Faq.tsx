@@ -6,7 +6,7 @@ export default function Faq() {
   const { t } = useT();
   const f = t.faq;
   return (
-    <Section id="faq" n="10" label={f.label}>
+    <Section id="faq" n="08" label={f.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{f.title}</h2>
       <div className="border-t border-line">
         {f.items.map(([q, a], i) => (

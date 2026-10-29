@@ -3,13 +3,11 @@ import { join } from "node:path";
 import Nav from "@/components/Nav";
 import HexField from "@/components/HexField";
 import Hero from "@/components/Hero";
-import Problem from "@/components/Problem";
-import Checks from "@/components/Checks";
-import Anatomy from "@/components/Anatomy";
-import EmployeeFile from "@/components/EmployeeFile";
 import Hiring from "@/components/Hiring";
+import Anatomy from "@/components/Anatomy";
 import Roster from "@/components/Roster";
-import Pricing from "@/components/Pricing";
+import Problem from "@/components/Problem";
+import Usage from "@/components/Usage";
 import Founder from "@/components/Founder";
 import Roadmap from "@/components/Roadmap";
 import Cta from "@/components/Cta";
@@ -26,13 +24,11 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <Problem />
-        <Checks />
-        <Anatomy />
-        <EmployeeFile />
         <Hiring />
+        <Anatomy />
         <Roster />
-        <Pricing />
+        <Problem />
+        <Usage />
         <Founder photo={hasPhoto} />
         <Roadmap />
         <Faq />

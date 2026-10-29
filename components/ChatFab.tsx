@@ -1,8 +1,7 @@
 "use client";
 import { useT } from "@/lib/i18n";
 
-// Floating button on every page: opens the chat in the console demo, laid out like Telegram,
-// so visitors talk to the AI team without leaving the site.
+// Floating button on every page: opens the chat in the console demo (sample data).
 export default function ChatFab() {
   const { t } = useT();
   return (
