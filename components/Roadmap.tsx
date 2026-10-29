@@ -7,7 +7,7 @@ export default function Roadmap() {
   const { t } = useT();
   const r = t.roadmap;
   return (
-    <Section n="09" label={r.label}>
+    <Section id="roadmap" n="07" label={r.label}>
       <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{r.title}</h2>
       <ol className="grid border-t border-line md:grid-cols-5">
         {r.stages.map(([name, what, gate], i) => {
@@ -36,11 +36,7 @@ export default function Roadmap() {
               <p className="mt-3 border-t border-line pt-3 font-mono text-[12px] leading-relaxed text-muted">
                 {r.gate}: {gate}
               </p>
-              {i === 1 && (
-                <p className="mt-3 font-mono text-[11px] leading-relaxed text-muted">
-                  {r.built} · {site.testnet.date}
-                </p>
-              )}
+              {done && <p className="mt-3 font-mono text-[11px] leading-relaxed text-muted">{r.done}</p>}
             </li>
           );
         })}

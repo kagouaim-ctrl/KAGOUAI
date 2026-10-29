@@ -2,12 +2,13 @@
 import { useT } from "@/lib/i18n";
 import { Section } from "./ui";
 
+// What agents do, then what runs underneath.
 export default function Anatomy() {
   const { t } = useT();
-  const a = t.anatomy;
+  const a = t.caps;
   const s = t.stack;
   return (
-    <Section n="03" label={a.label}>
+    <Section id="capabilities" n="02" label={a.label}>
       <h2 className="display pad max-w-[22ch] pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{a.title}</h2>
       <dl className="border-t border-line">
         {a.rows.map(([part, what, how], i) => (

@@ -37,7 +37,7 @@ export default function Nav() {
           </nav>
           <div className="flex items-center gap-3 sm:gap-4">
             <LangSwitch className="hidden sm:flex" />
-            <a href={site.trialHref} {...ext(site.trialHref)} className="btn btn-signal !px-3 !py-2 sm:!px-4">
+            <a href={site.accessHref} {...ext(site.accessHref)} className="btn btn-signal !px-3 !py-2 sm:!px-4">
               {t.nav.cta}
             </a>
             <button
