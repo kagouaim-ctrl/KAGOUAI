@@ -24,10 +24,10 @@ export const en = {
     kicker: "CHAT-FIRST AI AGENTS FOR WEB3 TEAMS · BNB CHAIN",
     title: "Chat with your Web3 AI agents.",
     sub: "Create agents, give each one a role and permissions, then assign work in plain language. They analyze wallets and contracts, watch the chain, review and fix code, and hand work to each other. Every reply is a real task you can follow step by step, and anything that changes your code waits for your approval.",
-    cta: "Open the console demo",
+    cta: "Open Meme Agent",
     secondary: "Request early access",
     fine: "Agents start read-only. No agent can move funds, merge or deploy. No token.",
-    proof: "Demo runs on sample data · private beta opening to first teams",
+    proof: "Meme Agent runs on sample data for now · private beta opening to first teams",
   },
   replay: {
     title: "kagou://chat",
@@ -198,7 +198,7 @@ export const en = {
     title: "Questions teams ask first.",
     items: [
       ["What is KAGOU?", "A web console where you build a small team of AI agents and work with them in chat. Each agent has a responsibility and a set of permissions. You describe a job; KAGOU gives it to the right agent, or to the one you picked, and you follow it as a task: steps, hand-offs to other agents, result, and anything waiting for your approval."],
-      ["Can I use it today?", "You can click through the whole console in the demo, on sample data. The hosted version with real models is opening as a private beta to a small number of teams first. Message the founder on Telegram to join."],
+      ["Can I use it today?", "You can click through Meme Agent now, on sample data. The hosted version with real models is opening as a private beta to a small number of teams first. Message the founder on Telegram to join."],
       ["Can an agent move funds or deploy code?", "No. Moving funds, contract upgrades and admin changes, merging to production, deploying and reading secrets are human-only and can't be granted to any agent. Code fixes end as a patch or a Draft PR that you review and approve."],
       ["How does a code fix work?", "The agent works in its own git copy of your repository, changes code, and runs your test command with a cleared environment and, where the host allows it, no network. If tests pass it submits a patch. You see the files, the diff, the test results and the risks, then approve or reject. Approved patches are applied to your repo or pushed as a Draft PR."],
       ["What on-chain data can agents read?", "On BNB Chain: balances, token info, contract owner and admin rights, contract events, large transfers and new holders. Transaction history needs a block-explorer API key. Holder distribution, liquidity and full historical stats need an indexer, and that's the next stage on the roadmap. Until then agents say they can't answer rather than guess."],
@@ -210,7 +210,7 @@ export const en = {
   cta: {
     title: "Give your team an AI crew that asks before it acts.",
     primary: "Request early access",
-    secondary: "Open the console demo",
+    secondary: "Open Meme Agent",
   },
   footer: {
     place: "KAGOU · Tokyo",
@@ -227,7 +227,7 @@ export const en = {
       "If you message us on Telegram or X, those services' own policies apply.",
     ],
   },
-  ui: { chat: "Try the chat demo", copy: "COPY", copied: "COPIED", skip: "Skip to content", notFound: "This page isn't on-chain.", home: "Back to KAGOU", product: "Product", contact: "Contact", tagline: "Chat-first AI agents for Web3 teams. Built on BNB Chain.", affiliation: "Not affiliated with BNB Chain." },
+  ui: { copy: "COPY", copied: "COPIED", skip: "Skip to content", notFound: "This page isn't on-chain.", home: "Back to KAGOU", product: "Product", contact: "Contact", tagline: "Chat-first AI agents for Web3 teams. Built on BNB Chain.", affiliation: "Not affiliated with BNB Chain." },
   common: { sample: "SAMPLE", testnet: "TESTNET", scrollHint: "← scroll →" },
 };
 

@@ -15,7 +15,7 @@ export default function Hero() {
           <h1 className="display text-[clamp(40px,6.4vw,92px)] lg:text-[clamp(44px,4.9vw,84px)]">{nb(h.title)}</h1>
           <p className="mt-6 max-w-[34rem] text-[16px] leading-[1.65] text-muted sm:text-[17px]">{h.sub}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href={site.demoHref} className="btn btn-signal">
+            <a href={site.memeHref} className="btn btn-signal">
               {h.cta} ↗
             </a>
             <a href={site.accessHref} {...ext(site.accessHref)} className="btn btn-line">
