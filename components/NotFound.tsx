@@ -4,10 +4,10 @@ import { useT } from "@/lib/i18n";
 export default function NotFound() {
   const { t } = useT();
   return (
-    <main id="main" className="wrap pad flex min-h-[60vh] flex-col justify-center py-20">
-      <p className="label">ERROR 404 · NOT FOUND</p>
-      <h1 className="display mt-6 text-[clamp(36px,6vw,88px)]">{t.ui.notFound}</h1>
-      <a href="/" className="link mt-10 font-mono text-[13px]">
+    <main id="main" className="wrap flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+      <p className="eyebrow">404</p>
+      <h1 className="h-display mt-4 text-[clamp(32px,5vw,64px)]">{t.ui.notFound}</h1>
+      <a href="/" className="btn-primary mt-10 h-12 px-6 text-[15px]">
         ← {t.ui.home}
       </a>
     </main>

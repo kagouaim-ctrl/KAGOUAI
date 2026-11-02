@@ -1,132 +1,87 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useT } from "@/lib/i18n";
-import { useChain } from "@/lib/chain";
 import { site } from "@/content/site";
-import { LangSwitch, ext } from "./ui";
+import { Arrow, LangSwitch } from "./ui";
+import Marquee from "./Marquee";
 
-export default function Nav() {
+export function Logo({ className = "" }: { className?: string }) {
+  return (
+    <span className={`flex items-center gap-2 ${className}`}>
+      <svg aria-hidden viewBox="0 0 28 28" className="h-7 w-7">
+        <rect width="28" height="28" rx="8" fill="#516af6" />
+        <path d="M9 7v14M9 14l8-7M12 11.5 19 21" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </svg>
+      <span className="text-[18px] font-bold tracking-[-0.02em]">KAGOU</span>
+    </span>
+  );
+}
+
+export default function Nav({ marquee = true }: { marquee?: boolean }) {
   const { t } = useT();
   const [open, setOpen] = useState(false);
-  const active = useActiveSection(t.nav.links.map(([, href]) => href.slice(1)));
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 8);
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
   return (
-    <header className="sticky top-0 z-50 bg-bg">
+    <header className={`sticky top-0 z-50 border-b transition-colors ${scrolled || open ? "border-line bg-bg/85 backdrop-blur-xl" : "border-transparent bg-bg/0"}`}>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:bg-text focus:px-3 focus:py-2 focus:text-bg"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-lg focus:bg-text focus:px-3 focus:py-2 focus:text-bg"
       >
         {t.ui.skip}
       </a>
-      <div className="border-b border-line">
-        <div className="wrap pad flex h-14 items-center justify-between gap-4">
-          <a href="#top" className="display text-[19px] tracking-[-0.02em]" aria-label="KAGOU home">
-            KAGOU
+      <div className="wrap flex h-16 items-center justify-between gap-4">
+        <div className="flex items-center gap-8">
+          <a href="/#top" aria-label="KAGOU home">
+            <Logo />
           </a>
-          <nav className="hidden items-center gap-7 md:flex" aria-label="Sections">
+          <nav className="hidden items-center gap-1 lg:flex" aria-label="Sections">
             {t.nav.links.map(([name, href]) => (
-              <a
-                key={href}
-                href={href}
-                aria-current={active === href.slice(1) ? "true" : undefined}
-                className={`relative text-[13px] transition-colors hover:text-text ${active === href.slice(1) ? "text-text" : "text-muted"}`}
-              >
+              <a key={href} href={`/${href}`} className="rounded-lg px-3 py-2 text-[14px] font-medium text-muted transition-colors hover:bg-white/5 hover:text-text">
                 {name}
-                {active === href.slice(1) && <span aria-hidden className="absolute inset-x-0 -bottom-[19px] h-px bg-text" />}
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-3 sm:gap-4">
-            <LangSwitch className="hidden sm:flex" />
-            <a href={site.accessHref} {...ext(site.accessHref)} className="btn btn-signal !px-3 !py-2 sm:!px-4">
-              {t.nav.cta}
-            </a>
-            <button
-              className="font-mono text-[12px] text-muted md:hidden"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              onClick={() => setOpen((o) => !o)}
-            >
-              {open ? t.nav.close : t.nav.menu}
-            </button>
-          </div>
+        </div>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <LangSwitch className="hidden sm:flex" />
+          <a href={site.appHref} className="btn-primary h-10 px-4 text-[14px]">
+            {t.nav.app}
+            <Arrow className="hidden sm:block" />
+          </a>
+          <button
+            className="grid h-10 w-10 place-items-center rounded-lg border border-line lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? t.nav.close : t.nav.menu}
+            onClick={() => setOpen((o) => !o)}
+          >
+            <svg viewBox="0 0 20 20" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+              {open ? <path d="M5 5l10 10M15 5 5 15" /> : <path d="M3 6h14M3 10h14M3 14h14" />}
+            </svg>
+          </button>
         </div>
       </div>
       {open && (
-        <div id="mobile-menu" className="border-b border-line md:hidden">
-          <div className="wrap">
+        <div id="mobile-menu" className="border-t border-line lg:hidden">
+          <div className="wrap py-2">
             {t.nav.links.map(([name, href]) => (
-              <a
-                key={href}
-                href={href}
-                onClick={() => setOpen(false)}
-                className="pad block border-b border-line py-3 text-[15px] last:border-b-0"
-              >
+              <a key={href} href={`/${href}`} onClick={() => setOpen(false)} className="block rounded-lg px-2 py-3 text-[16px] font-medium hover:bg-white/5">
                 {name}
               </a>
             ))}
-            <div className="pad py-3">
-              <LangSwitch />
+            <div className="px-2 py-3">
+              <LangSwitch className="inline-flex" />
             </div>
           </div>
         </div>
       )}
-      <Ticker />
+      {marquee && <Marquee />}
     </header>
   );
-}
-
-function Ticker() {
-  const { t } = useT();
-  const { block, gasGwei, live } = useChain();
-  const s = block ? block.toLocaleString("en-US") : "—";
-  const head = s.slice(0, -2);
-  const tail = s.slice(-2);
-  return (
-    <div className="border-b border-line">
-      <div className="wrap pad flex h-7 items-center justify-between font-mono text-[11px] text-muted">
-        <p className="num truncate" aria-live="off">
-          BSC <span className="text-text">#{head}</span>
-          <span key={block} className="tick text-text">
-            {tail}
-          </span>
-          <span className="hidden sm:inline"> · 0.75s · gas {gasGwei.toFixed(2)} gwei</span>
-        </p>
-        <p className="flex shrink-0 items-center gap-2" title={live ? undefined : t.ticker.simNote}>
-          {live ? (
-            <>
-              <span aria-hidden className="h-1.5 w-1.5 bg-signal" />
-              <span className="text-text">{t.ticker.live}</span>
-            </>
-          ) : (
-            <>
-              <span aria-hidden className="h-1.5 w-1.5 border border-muted" />
-              <span>{t.ticker.sim}</span>
-            </>
-          )}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-// Which section is in the upper part of the viewport, for the nav underline.
-function useActiveSection(ids: string[]) {
-  const [active, setActive] = useState<string | null>(null);
-  const key = ids.join(",");
-  useEffect(() => {
-    const els = key
-      .split(",")
-      .map((id) => document.getElementById(id))
-      .filter((e): e is HTMLElement => !!e);
-    if (!els.length) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
-      },
-      { rootMargin: "-30% 0px -60% 0px" },
-    );
-    els.forEach((e) => io.observe(e));
-    return () => io.disconnect();
-  }, [key]);
-  return active;
 }

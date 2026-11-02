@@ -5,7 +5,7 @@ import NotFound from "@/components/NotFound";
 export default function Page() {
   return (
     <>
-      <Nav />
+      <Nav marquee={false} />
       <NotFound />
       <Footer />
     </>
