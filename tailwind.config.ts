@@ -25,10 +25,16 @@ export default {
       keyframes: {
         marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
         pulseDot: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".35" } },
+        flowX: { from: { transform: "translateX(-100%)" }, to: { transform: "translateX(300%)" } },
+        flowY: { from: { transform: "translateY(-100%)" }, to: { transform: "translateY(300%)" } },
+        shine: { from: { transform: "translateX(-120%) skewX(-20deg)" }, to: { transform: "translateX(320%) skewX(-20deg)" } },
       },
       animation: {
         marquee: "marquee 60s linear infinite",
         pulseDot: "pulseDot 1.6s ease-in-out infinite",
+        flowX: "flowX 1.8s linear infinite",
+        flowY: "flowY 1.8s linear infinite",
+        shine: "shine 3.2s ease-in-out infinite",
       },
     },
   },

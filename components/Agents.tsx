@@ -15,6 +15,7 @@ export default function Agents() {
           <Connector />
           <Reveal delay={0.08} className="flex">
             <div className="relative flex w-full flex-col justify-center overflow-hidden rounded-2xl border border-accent/50 bg-gradient-to-b from-accent/20 to-accent/5 p-6">
+              <span aria-hidden className="absolute -right-16 -top-16 h-48 w-48 animate-[spin_14s_linear_infinite] rounded-full bg-[conic-gradient(from_0deg,transparent,rgba(81,106,246,0.45),transparent_40%)] blur-2xl" />
               <p className="text-[12px] font-semibold text-[#9aa8ff]">{a.lead.title}</p>
               <span className="mt-4 grid h-12 w-12 place-items-center rounded-2xl bg-accent text-white shadow-[0_10px_30px_-6px_rgba(81,106,246,0.8)]">
                 <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -71,12 +72,14 @@ function Column({ title, tag, tone, items, delay }: { title: string; tag: string
   );
 }
 
+// A line with light pulses running along it, from research to decision to execution.
 function Connector() {
   return (
-    <div aria-hidden className="flex items-center justify-center text-faint">
-      <svg viewBox="0 0 24 24" className="h-6 w-6 rotate-90 lg:rotate-0" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M4 12h16M14 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+    <div aria-hidden className="flex items-center justify-center">
+      <div className="relative h-10 w-px overflow-hidden bg-line lg:h-px lg:w-12">
+        <span className="absolute left-0 top-0 h-4 w-px animate-flowY bg-gradient-to-b from-transparent via-accent to-transparent lg:hidden" />
+        <span className="absolute left-0 top-0 hidden h-px w-6 animate-flowX bg-gradient-to-r from-transparent via-[#9aa8ff] to-transparent lg:block" />
+      </div>
     </div>
   );
 }

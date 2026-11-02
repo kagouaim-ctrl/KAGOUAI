@@ -1,6 +1,6 @@
 "use client";
 import { useT } from "@/lib/i18n";
-import { useMarket, fmtUsd } from "@/lib/market";
+import { useMarket, fmtUsd, type Coin } from "@/lib/market";
 import { site } from "@/content/site";
 import { Arrow, CoinIcon, Pct, Price, Reveal, SectionHead } from "./ui";
 
@@ -18,7 +18,12 @@ export default function Markets() {
           <Arrow />
         </a>
       </div>
-      <Reveal className="card mt-10 overflow-hidden">
+      <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <Movers title={m.movers.gainers} icon="🔥" coins={[...coins].sort((a, b) => b.h24 - a.h24).slice(0, 3)} value={(c) => <Pct v={c.h24} className="font-semibold" />} />
+        <Movers title={m.movers.losers} icon="📉" coins={[...coins].sort((a, b) => a.h24 - b.h24).slice(0, 3)} value={(c) => <Pct v={c.h24} className="font-semibold" />} />
+        <Movers title={m.movers.deep} icon="💧" coins={[...coins].sort((a, b) => b.liq - a.liq).slice(0, 3)} value={(c) => <span className="num font-semibold">{fmtUsd(c.liq)}</span>} />
+      </div>
+      <Reveal className="card mt-4 overflow-hidden">
         <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 sm:px-6">
           <span className={`flex items-center gap-2 text-[12px] font-semibold ${live ? "text-up" : "text-warn"}`}>
             <span className={`h-1.5 w-1.5 rounded-full ${live ? "animate-pulseDot bg-up" : "bg-warn"}`} />
@@ -77,5 +82,30 @@ export default function Markets() {
         <p className="border-t border-line px-4 py-3 text-[12px] text-faint sm:hidden">{live ? m.source : m.snapshotNote}</p>
       </Reveal>
     </section>
+  );
+}
+
+function Movers({ title, icon, coins, value }: { title: string; icon: string; coins: Coin[]; value: (c: Coin) => React.ReactNode }) {
+  return (
+    <Reveal className="card p-5 transition-colors hover:border-white/20">
+      <p className="flex items-center gap-2 text-[13px] font-semibold text-muted">
+        <span aria-hidden>{icon}</span>
+        {title}
+      </p>
+      <ul className="mt-4 space-y-3">
+        {coins.map((c) => (
+          <li key={c.address} className="flex items-center justify-between gap-3">
+            <span className="flex min-w-0 items-center gap-2.5">
+              <CoinIcon src={c.image} symbol={c.symbol} size={26} />
+              <span className="truncate text-[14px] font-semibold">{c.symbol}</span>
+              <span className="hidden text-[12px] text-faint sm:inline">
+                <Price v={c.price} />
+              </span>
+            </span>
+            {value(c)}
+          </li>
+        ))}
+      </ul>
+    </Reveal>
   );
 }

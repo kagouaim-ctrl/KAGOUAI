@@ -1,6 +1,7 @@
 "use client";
 import { useT } from "@/lib/i18n";
 import { Reveal, SectionHead } from "./ui";
+import Injection from "./Injection";
 
 export default function Safety() {
   const { t } = useT();
@@ -8,7 +9,8 @@ export default function Safety() {
   return (
     <section id="safety" className="wrap py-16 sm:py-24">
       <SectionHead eyebrow={s.eyebrow} title={s.title} center />
-      <ul className="mt-12 grid gap-4 md:grid-cols-2">
+      <Injection />
+      <ul className="mt-4 grid gap-4 md:grid-cols-2">
         {s.items.map(([title, body], i) => (
           <li key={title}>
             <Reveal delay={(i % 2) * 0.06} className="card relative h-full overflow-hidden p-6 sm:p-8">

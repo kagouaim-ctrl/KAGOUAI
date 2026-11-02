@@ -2,6 +2,7 @@
 import { useT } from "@/lib/i18n";
 import { site } from "@/content/site";
 import { Arrow, Reveal, SectionHead } from "./ui";
+import ChatPhone from "./ChatPhone";
 
 export default function Community() {
   const { t } = useT();
@@ -37,11 +38,8 @@ export default function Community() {
             </span>
           </Reveal>
         </div>
-        <Reveal delay={0.1} className="mx-auto w-full max-w-[460px]">
-          <div className="overflow-hidden rounded-[28px] border border-line bg-bg p-2 shadow-[0_40px_120px_-30px_rgba(81,106,246,0.45)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/shots/chat.webp" alt="" width={800} height={1537} loading="lazy" className="block max-h-[620px] w-full rounded-[22px] object-cover object-top" />
-          </div>
+        <Reveal delay={0.1}>
+          <ChatPhone />
         </Reveal>
       </div>
     </section>
