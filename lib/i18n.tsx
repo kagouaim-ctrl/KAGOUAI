@@ -6,9 +6,9 @@ import { ja } from "@/content/ja";
 
 export type Lang = "en" | "zh" | "ja";
 export const langs: { id: Lang; label: string; html: string }[] = [
-  { id: "ja", label: "JP", html: "ja" },
   { id: "en", label: "EN", html: "en" },
   { id: "zh", label: "中", html: "zh-CN" },
+  { id: "ja", label: "JP", html: "ja" },
 ];
 const content: Record<Lang, Content> = { en, zh, ja };
 const KEY = "kagou.lang";

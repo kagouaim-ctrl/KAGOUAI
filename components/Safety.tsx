@@ -10,10 +10,10 @@ export default function Safety() {
     <section id="safety" className="wrap py-16 sm:py-24">
       <SectionHead eyebrow={s.eyebrow} title={s.title} center />
       <Injection />
-      <ul className="mt-4 grid gap-4 md:grid-cols-2">
+      <ul className="mt-4 grid gap-4 md:grid-cols-3">
         {s.items.map(([title, body], i) => (
           <li key={title}>
-            <Reveal delay={(i % 2) * 0.06} className="card relative h-full overflow-hidden p-6 sm:p-8">
+            <Reveal delay={i * 0.06} className="card relative h-full overflow-hidden p-6 sm:p-8">
               <span className="num absolute right-6 top-5 text-[56px] font-bold leading-none text-white/[0.04]">0{i + 1}</span>
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-up/10 text-up">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">

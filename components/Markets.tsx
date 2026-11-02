@@ -1,6 +1,6 @@
 "use client";
 import { useT } from "@/lib/i18n";
-import { useMarket, fmtUsd, type Coin } from "@/lib/market";
+import { useMarket, fmtUsd } from "@/lib/market";
 import { site } from "@/content/site";
 import { Arrow, CoinIcon, Pct, Price, Reveal, SectionHead } from "./ui";
 
@@ -8,7 +8,7 @@ export default function Markets() {
   const { t } = useT();
   const m = t.market;
   const { coins, live } = useMarket();
-  const rows = [...coins].sort((a, b) => b.mcap - a.mcap);
+  const rows = [...coins].sort((a, b) => b.mcap - a.mcap).slice(0, 6);
   return (
     <section id="markets" className="wrap py-16 sm:py-24">
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -18,12 +18,7 @@ export default function Markets() {
           <Arrow />
         </a>
       </div>
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
-        <Movers title={m.movers.gainers} icon="🔥" coins={[...coins].sort((a, b) => b.h24 - a.h24).slice(0, 3)} value={(c) => <Pct v={c.h24} className="font-semibold" />} />
-        <Movers title={m.movers.losers} icon="📉" coins={[...coins].sort((a, b) => a.h24 - b.h24).slice(0, 3)} value={(c) => <Pct v={c.h24} className="font-semibold" />} />
-        <Movers title={m.movers.deep} icon="💧" coins={[...coins].sort((a, b) => b.liq - a.liq).slice(0, 3)} value={(c) => <span className="num font-semibold">{fmtUsd(c.liq)}</span>} />
-      </div>
-      <Reveal className="card mt-4 overflow-hidden">
+      <Reveal className="card mt-10 overflow-hidden">
         <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 sm:px-6">
           <span className={`flex items-center gap-2 text-[12px] font-semibold ${live ? "text-up" : "text-warn"}`}>
             <span className={`h-1.5 w-1.5 rounded-full ${live ? "animate-pulseDot bg-up" : "bg-warn"}`} />
@@ -38,7 +33,6 @@ export default function Markets() {
               <tr className="text-left text-[12px] text-faint">
                 <th className="py-3 pl-4 font-medium sm:pl-6">{m.cols[0]}</th>
                 <th className="py-3 pr-4 text-right font-medium">{m.cols[1]}</th>
-                <th className="hidden py-3 pr-4 text-right font-medium md:table-cell">{m.cols[2]}</th>
                 <th className="py-3 pr-4 text-right font-medium">{m.cols[3]}</th>
                 <th className="hidden py-3 pr-4 text-right font-medium sm:table-cell">{m.cols[4]}</th>
                 <th className="hidden py-3 pr-4 text-right font-medium lg:table-cell">{m.cols[5]}</th>
@@ -61,9 +55,6 @@ export default function Markets() {
                   <td className="py-3.5 pr-4 text-right font-medium">
                     <Price v={c.price} />
                   </td>
-                  <td className="hidden py-3.5 pr-4 text-right md:table-cell">
-                    <Pct v={c.h1} />
-                  </td>
                   <td className="py-3.5 pr-4 text-right">
                     <Pct v={c.h24} className="font-medium" />
                   </td>
@@ -85,27 +76,3 @@ export default function Markets() {
   );
 }
 
-function Movers({ title, icon, coins, value }: { title: string; icon: string; coins: Coin[]; value: (c: Coin) => React.ReactNode }) {
-  return (
-    <Reveal className="card p-5 transition-colors hover:border-white/20">
-      <p className="flex items-center gap-2 text-[13px] font-semibold text-muted">
-        <span aria-hidden>{icon}</span>
-        {title}
-      </p>
-      <ul className="mt-4 space-y-3">
-        {coins.map((c) => (
-          <li key={c.address} className="flex items-center justify-between gap-3">
-            <span className="flex min-w-0 items-center gap-2.5">
-              <CoinIcon src={c.image} symbol={c.symbol} size={26} />
-              <span className="truncate text-[14px] font-semibold">{c.symbol}</span>
-              <span className="hidden text-[12px] text-faint sm:inline">
-                <Price v={c.price} />
-              </span>
-            </span>
-            {value(c)}
-          </li>
-        ))}
-      </ul>
-    </Reveal>
-  );
-}

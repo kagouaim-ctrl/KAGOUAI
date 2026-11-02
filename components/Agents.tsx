@@ -1,6 +1,6 @@
 "use client";
 import { useT } from "@/lib/i18n";
-import { Frame, Reveal, SectionHead } from "./ui";
+import { Reveal, SectionHead } from "./ui";
 
 // The decision pipeline: research agents -> lead agent -> code-only rails.
 export default function Agents() {
@@ -32,17 +32,6 @@ export default function Agents() {
           <Column title={a.rails.title} tag={a.rails.tag} tone="up" items={a.rails.items} delay={0.16} />
         </div>
 
-        <div className="mt-16 grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
-          <Reveal>
-            <p className="text-[22px] font-semibold leading-snug sm:text-[28px]">{a.shot}</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <Frame label="kagouai.com/meme · Agent">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/shots/agent.webp" alt="" width={1560} height={1390} loading="lazy" className="block w-full" />
-            </Frame>
-          </Reveal>
-        </div>
       </div>
     </section>
   );
