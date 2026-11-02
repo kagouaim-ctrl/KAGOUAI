@@ -1,6 +1,7 @@
 {
   "redirects": [
     { "source": "/demo", "destination": "/meme/", "permanent": false },
+    { "source": "/demo/", "destination": "/meme/", "permanent": false },
     { "source": "/demo/:path*", "destination": "/meme/", "permanent": false }
   ]
 }
