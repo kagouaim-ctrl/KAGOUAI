@@ -23,3 +23,4 @@ npm run build    # static export to out/, deploy as-is on Vercel
 - Drop the founder photo at `public/founder.jpg` and rebuild. The page picks it up automatically.
 - Set `currentStage` in `content/site.ts` when a roadmap gate is passed.
 - Old routes `/product` `/solutions` `/company` `/contact` redirect to the matching section.
+- `/demo/` was the old console demo. It is gone, and `vercel.json` sends it to Meme Agent at `/meme/`.
