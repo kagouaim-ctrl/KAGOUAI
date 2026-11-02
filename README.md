@@ -25,4 +25,4 @@ The homepage presents KAGOU as an AI-agent meme-coin trading app. The app itself
 
 - Set `currentStage` in `content/site.ts` when a roadmap stage ships.
 - Old routes `/product` `/solutions` `/company` `/contact` redirect to sections of the homepage.
-- `/demo/` (the earlier agent console) is still deployed but no longer linked from the homepage.
+- `/demo/` redirects to `/meme/` (see `vercel.json`).

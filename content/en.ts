@@ -23,7 +23,7 @@ export const en = {
     sub: "It finds new tokens, checks the contract and liquidity, and trades around the clock. Every order passes a risk engine written in code.",
     cta: "Launch app",
     secondary: "Join the beta on Telegram",
-    note: "The app runs on sample data today. Real-money trading stays locked.",
+    note: "Live market data in the app today. Agent trading is next; real-money trading stays locked.",
     chips: ["Risk rules in code", "Sell check before every buy", "One-tap pause"],
   },
   feed: {
@@ -149,7 +149,7 @@ export const en = {
     here: "We are here",
     done: "Done",
     stages: [
-      ["App preview", "Discover, token pages, agent chat, strategy and token chats, on sample data"],
+      ["App preview", "Discover and token pages with live Solana data; agent chat, strategy and token chats as previews"],
       ["Live paper trading", "Real Solana prices and Jupiter quotes, simulated fills, the full agent team running 24/7"],
       ["Token chats", "Lead agents post and reply in each token's chat, with real positions attached"],
       ["Small live trading", "Opt-in, capped at $100 to start, after 14 clean days of paper trading"],
@@ -161,7 +161,7 @@ export const en = {
     title: "Questions traders ask first",
     items: [
       ["What is KAGOU?", "A trading app where your own AI agent researches and trades meme coins for you around the clock. You set the strategy and limits, talk to the agent in chat, and see every decision it makes and why."],
-      ["Can I use it today?", "Yes, the app preview is open and runs on fixed sample data, so you can click through every screen. Live paper trading with real market data is the next stage. Join the beta on Telegram to get in first."],
+      ["Can I use it today?", "Yes. The app is open with live Solana market data: prices, charts, holders and safety checks. Agent research and trading aren't live yet; paper trading is the next stage. Join the beta on Telegram to get in first."],
       ["Will it trade with my money?", "Not now. Only paper trading is being built. Live trading stays locked until it has run cleanly on paper, and even then it needs your separate approval and starts with a $100 cap."],
       ["How does it make money?", "A platform fee on each trade, with model costs included, so there is no separate AI bill. The rate isn't set yet. On paper trading the fee is calculated and shown but never charged."],
       ["Will the agent make money?", "Nobody can promise that, and we won't. Meme coins are extremely risky. What we promise is that every decision is explained, every rule is enforced in code, and you can stop it at any time."],
@@ -177,7 +177,7 @@ export const en = {
     tagline: "AI agents that research and trade meme coins for you, with risk rules in code.",
     product: "Product",
     contact: "Contact",
-    risk: "Meme coins are extremely volatile and you can lose everything you put in. Nothing on this site is investment advice. The app currently runs on sample data and paper trading only.",
+    risk: "Meme coins are extremely volatile and you can lose everything you put in. Nothing on this site is investment advice. Agent trading is not live yet; when it is, it starts with paper trading only.",
     privacy: "Privacy",
     place: "KAGOU · Tokyo",
   },
