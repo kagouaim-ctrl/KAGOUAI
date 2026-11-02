@@ -1,28 +1,26 @@
 "use client";
 import { useT } from "@/lib/i18n";
-import { Section } from "./ui";
+import { SectionHead } from "./ui";
 
 export default function Faq() {
   const { t } = useT();
   const f = t.faq;
   return (
-    <Section id="faq" n="08" label={f.label}>
-      <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{f.title}</h2>
-      <div className="border-t border-line">
+    <section id="faq" className="wrap grid gap-10 py-16 sm:py-24 lg:grid-cols-[1fr_1.6fr]">
+      <SectionHead eyebrow={f.eyebrow} title={f.title} />
+      <div className="space-y-3">
         {f.items.map(([q, a], i) => (
-          <details key={q} className="group border-b border-line last:border-b-0" open={i === 0}>
-            <summary className="pad flex cursor-pointer list-none items-baseline gap-4 py-5 transition-colors hover:bg-surface [&::-webkit-details-marker]:hidden">
-              <span className="font-mono text-[12px] text-muted">Q{String(i + 1).padStart(2, "0")}</span>
-              <span className="flex-1 text-[17px] font-medium sm:text-[19px]">{q}</span>
-              <span aria-hidden className="font-mono text-[16px] text-muted group-open:hidden">+</span>
-              <span aria-hidden className="hidden font-mono text-[16px] text-muted group-open:inline">−</span>
+          <details key={q} className="card group overflow-hidden" open={i === 0}>
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16px] font-semibold transition-colors hover:bg-white/[0.02] sm:px-6 [&::-webkit-details-marker]:hidden">
+              {q}
+              <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/5 text-muted transition-transform group-open:rotate-45">
+                +
+              </span>
             </summary>
-            <p className="pad max-w-[60rem] pb-6 text-[16px] leading-relaxed text-muted sm:pl-[calc(2.5rem+4ch)] lg:pl-[calc(2.5rem+4ch)]">
-              {a}
-            </p>
+            <p className="px-5 pb-5 text-[15px] leading-relaxed text-muted sm:px-6">{a}</p>
           </details>
         ))}
       </div>
-    </Section>
+    </section>
   );
 }

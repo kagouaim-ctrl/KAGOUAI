@@ -1,47 +1,43 @@
 "use client";
 import { useT } from "@/lib/i18n";
 import { site } from "@/content/site";
-import { Section } from "./ui";
+import { Reveal, SectionHead } from "./ui";
 
 export default function Roadmap() {
   const { t } = useT();
   const r = t.roadmap;
   return (
-    <Section id="roadmap" n="07" label={r.label}>
-      <h2 className="display pad pb-10 pt-8 text-[clamp(30px,4.2vw,60px)]">{r.title}</h2>
-      <ol className="grid border-t border-line md:grid-cols-5">
-        {r.stages.map(([name, what, gate], i) => {
-          const here = i === site.currentStage;
-          const done = i < site.currentStage;
-          return (
-            <li
-              key={i}
-              className={`relative px-4 pb-8 pt-10 sm:px-6 ${i > 0 ? "border-t border-line md:border-l md:border-t-0" : ""} ${i > site.currentStage ? "text-muted" : ""}`}
-            >
-              <span
-                aria-hidden
-                className={`absolute left-4 top-[-5px] hidden h-2.5 w-2.5 sm:left-6 md:block ${here ? "bg-signal" : done ? "bg-text" : "border border-line bg-bg"}`}
-              />
-              <p className="flex items-center gap-3 font-mono text-[12px]">
-                <span className={here ? "text-text" : "text-muted"}>0{i}</span>
-                {here && (
-                  <span className="flex items-center gap-2 text-text">
-                    <span aria-hidden className="h-2 w-2 bg-signal md:hidden" />
-                    {r.here}
+    <section id="roadmap" className="border-y border-line bg-surface/40 py-16 sm:py-24">
+      <div className="wrap">
+        <SectionHead eyebrow={r.eyebrow} title={r.title} />
+        <ol className="relative mt-12 grid gap-4 lg:grid-cols-5">
+          <div aria-hidden className="absolute left-0 right-0 top-[22px] hidden h-px bg-line lg:block" />
+          {r.stages.map(([name, what], i) => {
+            const here = i === site.currentStage;
+            const done = i < site.currentStage;
+            return (
+              <li key={name} className="relative">
+                <Reveal delay={i * 0.06} className="h-full">
+                  <span
+                    className={`relative z-10 grid h-11 w-11 place-items-center rounded-full border text-[13px] font-bold ${
+                      here ? "border-accent bg-accent text-white shadow-[0_0_0_6px_rgba(81,106,246,0.18)]" : done ? "border-up/40 bg-up/15 text-up" : "border-line bg-bg text-faint"
+                    }`}
+                  >
+                    {done ? "✓" : i + 1}
                   </span>
-                )}
-              </p>
-              <p className="mt-3 text-[18px] font-medium leading-snug">{name}</p>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted">{what}</p>
-              <p className="mt-3 border-t border-line pt-3 font-mono text-[12px] leading-relaxed text-muted">
-                {r.gate}: {gate}
-              </p>
-              {done && <p className="mt-3 font-mono text-[11px] leading-relaxed text-muted">{r.done}</p>}
-            </li>
-          );
-        })}
-      </ol>
-      <p className="pad border-t border-line py-5 font-mono text-[13px]">{r.note}</p>
-    </Section>
+                  <div className={`card mt-4 h-[calc(100%-60px)] p-5 ${here ? "border-accent/50" : ""}`}>
+                    {(here || done) && (
+                      <p className={`mb-2 text-[11px] font-semibold ${here ? "text-[#9aa8ff]" : "text-up"}`}>{here ? r.here : r.done}</p>
+                    )}
+                    <p className={`text-[16px] font-semibold ${!here && !done ? "text-muted" : ""}`}>{name}</p>
+                    <p className="mt-2 text-[13px] leading-relaxed text-muted">{what}</p>
+                  </div>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
   );
 }

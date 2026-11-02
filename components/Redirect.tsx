@@ -7,9 +7,9 @@ export default function Redirect({ to }: { to: string }) {
     window.location.replace(to);
   }, [to]);
   return (
-    <main className="wrap pad py-24 font-mono text-[13px] text-muted">
+    <main className="wrap py-24 font-mono text-[13px] text-muted">
       <meta httpEquiv="refresh" content={`0;url=${to}`} />
-      <a href={to} className="link">
+      <a href={to} className="underline">
         {to}
       </a>
     </main>

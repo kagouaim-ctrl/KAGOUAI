@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Privacy — KAGOU" };
 export default function Page() {
   return (
     <>
-      <Nav />
+      <Nav marquee={false} />
       <Privacy />
       <Footer />
     </>

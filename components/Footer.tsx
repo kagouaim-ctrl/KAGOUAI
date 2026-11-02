@@ -2,6 +2,7 @@
 import { useT } from "@/lib/i18n";
 import { site } from "@/content/site";
 import { LangSwitch, ext } from "./ui";
+import { Logo } from "./Nav";
 
 export default function Footer() {
   const { t } = useT();
@@ -12,16 +13,21 @@ export default function Footer() {
     ["GitHub", site.github],
   ];
   return (
-    <footer className="wrap relative border-t border-line">
-      <div className="grid gap-px bg-line md:grid-cols-12">
-        <div className="bg-bg px-4 py-10 sm:px-6 md:col-span-5 lg:px-10">
-          <p className="display text-[22px]">KAGOU</p>
-          <p className="mt-3 max-w-[22rem] text-[14px] leading-relaxed text-muted">{t.ui.tagline}</p>
-          <LangSwitch className="-ml-1.5 mt-6" />
+    <footer className="border-t border-line bg-surface/40">
+      <div className="wrap grid gap-10 py-12 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <Logo />
+          <p className="mt-4 max-w-[22rem] text-[14px] leading-relaxed text-muted">{f.tagline}</p>
+          <LangSwitch className="mt-6 inline-flex" />
         </div>
-        <nav className="bg-bg px-4 py-10 sm:px-6 md:col-span-3" aria-label={t.ui.product}>
-          <p className="label">{t.ui.product}</p>
-          <ul className="mt-4 space-y-2 text-[14px]">
+        <nav className="md:col-span-3" aria-label={f.product}>
+          <p className="text-[13px] font-semibold">{f.product}</p>
+          <ul className="mt-4 space-y-2.5 text-[14px]">
+            <li>
+              <a href={site.appHref} className="text-muted transition-colors hover:text-text">
+                {t.nav.app}
+              </a>
+            </li>
             {t.nav.links.map(([name, href]) => (
               <li key={href}>
                 <a href={`/${href}`} className="text-muted transition-colors hover:text-text">
@@ -31,9 +37,9 @@ export default function Footer() {
             ))}
           </ul>
         </nav>
-        <div className="bg-bg px-4 py-10 sm:px-6 md:col-span-4">
-          <p className="label">{t.ui.contact}</p>
-          <ul className="mt-4 space-y-2 font-mono text-[13px]">
+        <div className="md:col-span-4">
+          <p className="text-[13px] font-semibold">{f.contact}</p>
+          <ul className="mt-4 space-y-2.5 text-[14px]">
             {contacts.map(([label, href]) => (
               <li key={href}>
                 <a href={href} {...ext(href)} className="text-muted transition-colors hover:text-text">
@@ -44,15 +50,17 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="pad flex flex-col gap-3 border-t border-line py-6 font-mono text-[12px] text-muted md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          <span className="text-text">{f.place}</span>
-          <a href="/privacy/" className="link">
-            {f.privacy}
-          </a>
-          <span>{t.ui.affiliation}</span>
+      <div className="border-t border-line">
+        <div className="wrap space-y-4 py-6 text-[12px] leading-relaxed text-faint">
+          <p className="max-w-[60rem]">{f.risk}</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="text-muted">{f.place}</span>
+            <a href="/privacy/" className="hover:text-text">
+              {f.privacy}
+            </a>
+            <span>© 2026 KAGOU</span>
+          </div>
         </div>
-        <p>{f.disclaimer}</p>
       </div>
     </footer>
   );
