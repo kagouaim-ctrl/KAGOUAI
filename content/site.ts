@@ -12,7 +12,7 @@ export const site = {
   github: "https://github.com/kagouaim-ctrl",
   // Where "Request early access" goes: the founder on Telegram until self-serve sign-up exists.
   accessHref: "https://t.me/cc_XBNB",
-  demoHref: "/demo/",
+  memeHref: "/meme/",
 
   // Roadmap stage that gets YOU ARE HERE (index into roadmap.stages).
   // 1 = private beta: the console and runtime are built; real-model runs with first teams are next.

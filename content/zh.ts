@@ -24,10 +24,10 @@ export const zh: Content = {
     kicker: "CHAT-FIRST AI AGENTS FOR WEB3 TEAMS · BNB CHAIN",
     title: "用对话指挥你的 Web3 AI Agent 团队。",
     sub: "创建 Agent，给每个 Agent 定好职责和权限，然后用一句话交代工作。它们分析钱包和合约、盯链上动态、审查和修复代码，还会把任务交给更合适的同伴。每条回复都是一个真实任务，每一步都看得到；任何要改你代码的操作，都要等你批准。",
-    cta: "打开控制台演示",
+    cta: "打开 Meme Agent",
     secondary: "申请内测",
     fine: "Agent 默认只读。任何 Agent 都不能转账、合并或部署。没有代币。",
-    proof: "演示使用示例数据 · 内测即将向首批团队开放",
+    proof: "Meme Agent 目前使用示例数据 · 内测即将向首批团队开放",
   },
   replay: {
     title: "kagou://chat",
@@ -198,7 +198,7 @@ export const zh: Content = {
     title: "团队最常问的问题。",
     items: [
       ["KAGOU 是什么？", "一个网页控制台：你搭一支小小的 AI Agent 团队，在聊天里和它们一起工作。每个 Agent 有自己的职责和权限。你说要做什么，KAGOU 把任务交给最合适的 Agent（或你指定的那个），你可以像看任务一样跟进：执行步骤、交给其他 Agent 的部分、结果，以及等你批准的事项。"],
-      ["现在能用吗？", "演示版可以把整个控制台点一遍，用的是示例数据。接入真实模型的托管版会先以内测形式开放给少量团队。想加入，在 Telegram 上直接找创始人。"],
+      ["现在能用吗？", "现在可以把 Meme Agent 点一遍，用的是示例数据。接入真实模型的托管版会先以内测形式开放给少量团队。想加入，在 Telegram 上直接找创始人。"],
       ["Agent 能转账或者部署代码吗？", "不能。转移资产、升级和管理合约、合并到生产分支、部署、读取密钥都只能由人来做，任何 Agent 都拿不到这些权限。代码修复最终是一个补丁或 Draft PR，由你审阅、批准。"],
       ["代码修复是怎么进行的？", "Agent 在你仓库的独立 git 副本里工作：改代码，然后在清空的环境变量下运行你配置的测试命令，主机支持时还会断网。测试通过才提交补丁。你能看到改了哪些文件、代码差异、测试结果和风险提示，再决定批准还是拒绝。批准后补丁应用到你的仓库，或者推成 Draft PR。"],
       ["Agent 能读哪些链上数据？", "BNB Chain 上的余额、代币信息、合约 owner 和管理权限、合约事件、大额转账和新持有人。交易历史需要区块浏览器的 API Key。持有人分布、流动性和完整历史统计需要索引服务，这是路线图的下一阶段；在那之前，Agent 会直接说做不到，而不是瞎猜。"],
@@ -210,7 +210,7 @@ export const zh: Content = {
   cta: {
     title: "给团队一支先问你、再动手的 AI 队伍。",
     primary: "申请内测",
-    secondary: "打开控制台演示",
+    secondary: "打开 Meme Agent",
   },
   footer: {
     place: "KAGOU · Tokyo",
@@ -227,6 +227,6 @@ export const zh: Content = {
       "如果你通过 Telegram 或 X 联系我们，适用这些服务自己的隐私政策。",
     ],
   },
-  ui: { chat: "试试聊天演示", copy: "复制", copied: "已复制", skip: "跳到正文", notFound: "这个页面不在链上。", home: "回到 KAGOU", product: "产品", contact: "联系", tagline: "面向 Web3 团队的对话式 AI Agent。Built on BNB Chain.", affiliation: "与 BNB Chain 官方无隶属关系。" },
+  ui: { copy: "复制", copied: "已复制", skip: "跳到正文", notFound: "这个页面不在链上。", home: "回到 KAGOU", product: "产品", contact: "联系", tagline: "面向 Web3 团队的对话式 AI Agent。Built on BNB Chain.", affiliation: "与 BNB Chain 官方无隶属关系。" },
   common: { sample: "SAMPLE", testnet: "TESTNET", scrollHint: "← 滑动 →" },
 };

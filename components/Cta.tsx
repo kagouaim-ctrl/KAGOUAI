@@ -14,7 +14,7 @@ export default function Cta() {
           <a href={site.accessHref} {...ext(site.accessHref)} className="btn btn-signal">
             {c.primary}
           </a>
-          <a href={site.demoHref} className="btn btn-line">
+          <a href={site.memeHref} className="btn btn-line">
             {c.secondary} ↗
           </a>
         </div>
